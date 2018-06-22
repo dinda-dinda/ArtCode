@@ -9,5 +9,8 @@ In this stage, The mouse position represents the spectators proximity.
 DInda - Daiana Indaburo
 -------------------------
 
-UNA - Universidad Nacional del Arte
+
 Kadenze - The Nature of Code - Shiffman D. (Resources)
+UNA - Universidad Nacional del Arte 
+Lenguaje Visual VII - Liliana Medela
+Proyectual Digitalización - Marina Zerbarini
