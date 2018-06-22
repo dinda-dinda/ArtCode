@@ -39,16 +39,21 @@ function draw() {
     // Tell all the vehicles to follow the flow field
     for (var i = 0; i < vehicles.length; i++) {
         /*si los vehicles estan mas alla del tercio de la pantalla*/
-        if (vehicles[i].position.x > windowWidth / 3) {
+        if (vehicles[i].position.x > 0 && vehicles[i].position.x > windowWidth / 3 && airEnergys.length <= 10) {
             let coordX = int(vehicles[i].position.x);
             let coordY = int(vehicles[i].position.y);
 
             airEnergys.push(new AirEnergy(coordX, coordY));
-        } else {
+        } else if (vehicles[i].position.x > 0 && vehicles[i].position.x > windowWidth / 3 && airEnergys.length >= 10) {
+            vehicles[i].position.x = windowWidth / 3 - 5;
+            vehicles[i].follow(flowfield); /*si no que sigan el followfield*/
+            vehicles[i].run();
 
+        } else {
             vehicles[i].follow(flowfield); /*si no que sigan el followfield*/
             vehicles[i].run();
         }
+
         for (var j = 0; j < airEnergys.length; j++) {
             airEnergys[j].applyBehaviorsAir(airEnergys);
             airEnergys[j].updateAir();
