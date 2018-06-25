@@ -120,27 +120,10 @@ function Vehicle(x, y, ms, mf) {
 
     // Wraparound
     this.borders = function() {
-        if (this.position.x < -this.r) this.position.x = width + this.r;
+        if (this.position.x < -this.r) this.position.x = width/3;
         if (this.position.y < -this.r) this.position.y = height + this.r;
-        if (this.position.x > width + this.r) this.position.x = -this.r;
+        if (this.position.x > width/3 + this.r) this.position.x = -this.r;
         if (this.position.y > height + this.r) this.position.y = -this.r;
-    }
-
-    this.displayAir = function() {
-        // Draw a triangle rotated in the direction of velocity
-
-        var theta = this.velocity;
-        fill(100, random(180, 220),0 );
-        noStroke(200);
-        push();
-        translate(this.position.x, this.position.y);
-        rotate(theta);
-        beginShape();
-        vertex(0, -this.r * 2);
-        vertex(-this.r, this.r * 2);
-        vertex(this.r, this.r * 2);
-        endShape(CLOSE);
-        pop();
     }
 
     this.display = function() {
